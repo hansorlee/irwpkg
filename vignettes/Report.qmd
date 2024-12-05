@@ -20,7 +20,7 @@ library(irwpkg)
 
 # Introduction
 
-This tutorial demonstrates how to use the irwpkg package to explore, filter, and retrieve data from a structured database of item response datasets. The package includes tools for:
+This tutorial demonstrates how to use the `irwpkg` package to explore, filter, and retrieve data from a structured database of item response datasets. The package includes tools for:
 
 1.  Exploring available datasets and their metadata.
 
@@ -62,7 +62,13 @@ Before filtering or selecting datasets, it’s helpful to understand the distrib
 
 ## View Overall Statistics
 
-The `show_overall_statistics()` function computes key statistics (e.g., range, mean) for attributes such as `id_count`, `item_count`, `resp_count`, and `sparsity`.
+The `show_overall_statistics()` function computes key statistics for attributes such as `id_count`, `item_count`, `resp_count`, and `sparsity`.
+
+Sparsity is calculated using the formula:
+
+$$
+\text{sparsity} = \left( \frac{\sqrt{\text{resp_count}}}{\text{id_count}} \right) \times \left( \frac{\sqrt{\text{resp_count}}}{\text{item_count}} \right)
+$$
 
 ```{r}
 show_overall_statistics()
@@ -159,10 +165,12 @@ download_data("swmd_mokken", path = "mydata.csv", overwrite=TRUE)
 
 # Summary
 
-This tutorial covered the key features of `irwpkg`: 1. Explore: Use list_available_datasets(), get_database_metadata(), and get_table_metadata() to explore the database.
+This tutorial covered the key features of `irwpkg`: 
 
-2.  Visualize: Use show_overall_statistics() and visualize_metadata_distributions() to understand dataset attributes.
+1. Explore: Use `list_available_datasets()`, `get_database_metadata()`, and `get_table_metadata()` to explore the database.
 
-3.  Filter: Use filter_tables() to refine your selection based on numeric or column presence criteria.
+2.  Visualize: Use `show_overall_statistics()` and `visualize_metadata_distributions()` to understand dataset attributes.
 
-4.  Retrieve: Use fetch_data() to load datasets into R for analysis.
+3.  Filter: Use `filter_tables()` to refine your selection based on numeric or column presence criteria.
+
+4.  Retrieve: Use `fetch_data()` to load datasets into R for analysis.

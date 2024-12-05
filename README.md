@@ -16,7 +16,7 @@ To install the development version of `irwpkg` from
 # install.packages("remotes")
 
 # Install irwpkg from GitHub
-remotes::install_github("hansorlee/irwpkg")
+remotes::install_github("hansorlee/irwpkg", build_vignettes = TRUE)
 ```
 
 ## Getting Started
@@ -55,11 +55,7 @@ vignette("Report", package = "irwpkg")
 #### Troubleshooting
 
 If the vignette does not appear, ensure that the package was installed
-with vignettes enabled. You can do this by reinstalling the package:
-
-``` r
-remotes::install_github("hansorlee/irwpkg", build_vignettes = TRUE)
-```
+with vignettes enabled (`build_vignettes = TRUE`).
 
 ### Authentication
 
